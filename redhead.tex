@@ -46,7 +46,11 @@
 \centerline{搬软发〔2018〕1号}
 }
 \vskip 4mm
-\bgroup\hrule height 1mm\egroup
+{
+\special{color push rgb 1 0 0}%
+\hrule height 1mm
+\special{color pop}
+}
 % 标题：2号宋体，编排于红色分隔线下空两行（行间距28磅）
 % 位置，分一行或多行居中排布；回行时，标题排列应当使用
 % 梯形或菱形。
