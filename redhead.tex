@@ -94,10 +94,25 @@
 凡来自或者途经疫情重点地区的人员进入本企业的，以及与上述人员、确诊或疑似新冠肺炎病例有密切接触的人员，应主动接受体温检测，自觉实施居家或者积极配合集中隔离医学观察14天。对未按照规定主动登记，在工作人员询问时不如实告知，或者拒绝执行相关检测、居家隔离、集中隔离观察措施的，将按照有关规定处理，构成治安管理违法行为或者犯罪的，公安机关将依法追究相关人员的法律责任。\par
 请各经济开发园区和广大企业将疫情防控和复工复产情况每日5点前用办公网公务邮箱报送至区疫情防控指挥部办公室。\par
 
-\vskip 2em
-\setbox37=\hbox{右空四字}
-{\songti\hfill TODO：盖章，居中对齐\kern \wd37\par}
-\hfill 某某区疫情防控指挥部办公室\kern \wd37\par
-\hfill 2020年8月19日\kern \wd37\par
+\vskip 1mm
+
 }
+
+\rightline{\songti TODO: 印章距正文一行之内}
+\vskip 20mm
+
+\fangsong
+\baselineskip = 28pt
+\setbox37=\hbox{右空四字}
+\setbox38=\hbox{某某区疫情防控指挥部办公室}
+\setbox39=\hbox{2020年8月19日}
+\setbox40=\hbox to \wd37{\hfill}
+
+\hfill\vbox{%
+\hsize=\wd38
+% \hsize=\wd39
+\centerline{\box38}
+\centerline{\box39}
+}\kern \wd37
+
 \bye
