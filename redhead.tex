@@ -132,4 +132,19 @@
 \centerline{\box39}
 }\kern \wd37
 
+% 版记排在偶数页
+\vfill
+
+{
+\font\error="FangSong:color=FF0000" at 14pt
+\font\fangsong="FangSong" at 14pt
+\baselineskip = 24pt
+\parindent = 0pt
+\fangsong
+
+\setbox38=\vbox{\hsize = 390pt 总公司硬件部、软件部、滑稽部、后勤部，工厂食堂、测试线、生产线、保洁部。}
+{\error 抄送：}\box38\par
+\kern 14pt{搬砖科技有限公司滑稽办公室}\hfill{2021年8月19日印发}\kern 14pt\par
+}
+
 \bye
