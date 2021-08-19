@@ -187,10 +187,11 @@ Xe\TeX 红头文件模板，%
 
 \setbox37=\hbox{隔}
 \setbox38=\vbox{\hsize = 390pt 总公司硬件部、软件部、滑稽部、后勤部，工厂食堂、测试线、生产线、保洁部。}
+\setbox39=\vbox{\hbox{\quad 抄送：}}{\ht39=\ht38 \dp39=\dp38 }
 
 \hrule height 1pt
 \vskip 5pt
-{\error \quad 抄送：}{\box38}\par
+\hbox{\box39\box38}
 \vskip 5pt
 \hrule height 1pt
 \vskip 5pt
