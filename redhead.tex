@@ -23,9 +23,17 @@
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
 
-
-\font\songtifoot="[SimSun]:color=FF0000" at 14pt
-\footline = {\vbox{\vskip 7mm\vskip -6pt\songtifoot\hfill\kern 14pt -\kern -1pt-\kern 7pt\folio\kern 7pt-\kern -1pt-\kern 14pt}}
+\font\songtifoot="[SimSun]:color=FFFFFF" at 14pt
+\footline = {\vbox{%
+\vskip 7mm%  横线中心距离文档 7 毫米
+\vskip -6pt% 横线字高的一半
+\songtifoot%
+\noindent%
+\kern 16pt%  对应正文三号 16pt
+\ifodd\pageno\hfill\else\fi%
+-\kern -1pt-\kern 7pt\folio\kern 7pt-\kern -1pt-%
+\kern 16pt%
+}}
 
 \vbox to 0mm{
 \hsize = 110mm
