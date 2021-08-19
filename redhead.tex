@@ -173,9 +173,10 @@ Xe\TeX 红头文件模板，%
 \centerline{\box39}
 }\kern \wd37
 
+\ifodd\pageno{\vfill\hfill\vfill\vskip\vsize}%
+\else{\vfill\hfill}\fi%
+
 % 版记排在偶数页
-\vfill
-\vskip 11.5mm%手工
 {
 \font\error="FangSong:color=FF0000" at 14pt
 \font\fangsong="FangSong" at 14pt
