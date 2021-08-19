@@ -27,6 +27,24 @@
 \font\songtifoot="[SimSun]:color=FF0000" at 14pt
 \footline = {\vbox{\vskip 7mm\vskip -6pt\songtifoot\hfill\kern 14pt -\kern -1pt-\kern 7pt\folio\kern 7pt-\kern -1pt-\kern 14pt}}
 
+\vbox to 0mm{
+\hsize = 110mm
+\special{color push rgb 0 0 1}%
+\kern -35mm
+Xe\TeX 红头文件模板，%
+有部分格式还没有完全符合标准，有待今后修正。%
+页码区别单双数。%
+“抄送”二字顶部对齐。\par
+“抄送”部分问题是底部对齐了，%
+还不知道怎么解决。\par%
+请注意成文后检查每行28字，共22行。%
+若不符可微调行间距。\par%
+\noindent
+参考资料：http://www.ankang.gov.cn/Content-2060365.html\par
+\vfill
+\special{color pop}
+}
+
 \vbox to 35mm{
 \heiti
 \parindent = 0pt
@@ -50,7 +68,11 @@
 \fzxbsj
 \centerline{搬砖科技有限公司文件}%
 }
-\vskip 26pt
+\vbox to 28pt{%
+\special{color push rgb 0 0 1}%
+\hsize = 46mm\hrule\songti\vfill 空一行\vfill\par\hrule
+\special{color pop}
+}
 {
 \fangsong
 \centerline{搬软发〔2018〕1号}
@@ -115,13 +137,19 @@
 为避免外出就餐和使用外卖可能造成的感染风险，建议企业提倡员工自行带饭、预约用餐或错峰用餐。\par
 凡来自或者途经疫情重点地区的人员进入本企业的，以及与上述人员、确诊或疑似新冠肺炎病例有密切接触的人员，应主动接受体温检测，自觉实施居家或者积极配合集中隔离医学观察14天。对未按照规定主动登记，在工作人员询问时不如实告知，或者拒绝执行相关检测、居家隔离、集中隔离观察措施的，将按照有关规定处理，构成治安管理违法行为或者犯罪的，公安机关将依法追究相关人员的法律责任。\par
 请各经济开发园区和广大企业将疫情防控和复工复产情况每日5点前用办公网公务邮箱报送至区疫情防控指挥部办公室。\par
-
-\vskip 1mm
-
 }
 
-\rightline{\songti TODO: 印章距正文一行之内}
-\vskip 20mm
+\hfill\vbox to 21mm{%
+\special{color push rgb 0 0 1}%
+\hsize = 40mm
+\hrule
+\vskip 1mm
+\hrule
+\vbox to 0pt{\songti \vskip 4pt 印章距正文 大于1毫米 且在一行之内}
+\vskip 28pt
+\hrule
+\special{color pop}
+}\kern 38mm
 
 \fangsong
 \baselineskip = 28pt
@@ -139,7 +167,7 @@
 
 % 版记排在偶数页
 \vfill
-
+\vskip 11.5mm%手工
 {
 \font\error="FangSong:color=FF0000" at 14pt
 \font\fangsong="FangSong" at 14pt
