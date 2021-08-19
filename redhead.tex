@@ -36,15 +36,19 @@
 紧急程度\par
 \vfill
 }
-% 红头标题
-
+% 发文机关
 {
+% 发文机关标识推荐使用小标宋体字
+% 字号由发文机关以醒目美观为原则酌定，但是最大不能等于或大于22mm×15mm。
 \parindent=0pt
-\font\xiaobiaosong="Source Han Serif SC Heavy:color=FF0000" at 22pt
-\xiaobiaosong
-\hfill%
-搬砖科技有限公司文件%
-\hfill%
+\font\notoserifbold="Source Han Serif SC Bold:color=FF0000" at 36pt
+\notoserifbold
+%\centerline{搬砖科技有限公司文件}%
+% 方正字库知识产权用户许可协议
+% http://www.foundertype.com/index.php/About/powerAllowPro.html
+\font\fzxbsj="方正小标宋简体:color=FF0000" at 36pt
+\fzxbsj
+\centerline{搬砖科技有限公司文件}%
 }
 \vskip 26pt
 {
@@ -63,7 +67,8 @@
 \vskip 28pt
 \vskip 28pt
 \vbox{
-\font\songti = "SimSun" at 22pt%
+% \font\songti = "Source Han Serif SC Bold" at 22pt%
+\font\songti = "方正小标宋简体" at 22pt%
 \baselineskip = 28pt
 \parskip = 0pt
 \songti
