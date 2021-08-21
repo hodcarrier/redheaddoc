@@ -2,7 +2,8 @@
 %!TEX encoding = UTF-8 Unicode
 
 \font\1="Source Han Serif SC:color=0000FF"/OT at 10.5bp
-\font\err="Noto Sans SC:color=0000FF" at 10.5bp
+\font\2="Noto Sans SC:color=0000FF"/OT at 10.5bp
+\font\err="Noto Sans SC:color=FF0000" at 10.5bp
 \def\hr{\special{color push rgb 0 0 1}\hrule\special{color pop}}
 
 \1
@@ -14,7 +15,7 @@
 \font\songti="Source Han Serif SC"/OT at 16bp
 \font\fangsong="Source Han Serif SC"/OT at 16bp
 \font\heiti="Source Han Serif SC"/OT at 16bp
-\font\title="方正小标宋简体:color=FF0000"/OT at 32pt
+\font\title="方正小标宋简体:color=FF0000"/OT at 32bp
 
 % 思源宋体
 \font\songti="Source Han Serif SC"/OT at 16bp
@@ -28,37 +29,82 @@
 \font\heiti="SimHei" at 16bp
 \font\title="Source Han Serif SC Bold:color=FF0000"/OT at 32bp
 
+% GB/T9704—2012
 
-\hr
+%\hr
+% 纸张设置
+% 公文用纸采用GB/T148中规定的A4型纸,其成品幅面尺寸为:210mm×297mm.
+\pdfpagewidth 210mm
+\pdfpageheight 297mm
+
+% 版心设置
+\hsize=158mm
+\hoffset=3pt
+\vsize=225mm
+\voffset=27pt
+
+\footline{\1 GB/T9704-2012\hfill}
+
 {% 发文机关
 \title
 \centerline{中华人民共和国ＸＸＸＸＸ部}\par
+\vskip 4mm
 }
+
+{% 双红线
+\special{color push rgb 1 0 0}
 \hrule height 3pt
 \vskip 2pt
 \hrule height 1pt
-{% 份号、密级和保密期限
+\special{color pop}
+}
+%%%%%%%
+\vbox to 14pt{
+% \1 第一个要素与该线的距离为3号汉字高度的7/8。
+% \vfill
+% \hr
+}
+%%%%%%%
+\hbox{
+\parindent=0pt
+\baselineskip=28pt
+
+\vbox to 72pt{% 份号、密级和保密期限
+\heiti
+\setbox37=\hbox{123456}
+\hsize=\wd37
 000001\par
-机密\par
-特急\par
+机\hfill 密\par
+特\hfill 急\par
 }
-{% 发文字号
-ＸＸＸ〔2012〕10号\par
+\hfill
+\vbox to 72pt{% 发文字号
+\fangsong
+\hsize=136mm% TODO: 自动右对齐版芯
+\rightline{ＸＸＸ〔2012〕10号}
+\strut\par
+\strut\par
 }
-\hr
-
+}
 {% 标题
-ＸＸＸＸＸ关于ＸＸＸＸＸＸＸ的通知
+\heiti
+\vbox to 56.21pt{
+%\hr
+%\vfill
+%\1 标题居中编排,与其上最后一个要素相距二行。
+%\vfill
+%\hr
 }
-\hr
-ＸＸＸＸＸＸＸＸ：\par
-ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ。\par
-ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ。\par
-ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ。\par
-ＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸＸ。\par
-一二三四五六七八九十一二三四五六七八九廿一二三四五六七八九卅。\par
-
-10.1信函格式\par
+\centerline{ＸＸＸＸＸ关于ＸＸＸＸＸＸＸ的通知}
+}
+{% 正文
+\fangsong
+\baselineskip=28.105pt
+\parindent=32.12pt
+% {\tt \the\hsize * \the\vsize}
+\noindent ＸＸＸＸＸＸＸＸ：\par
+\noindent{}一二三四五六七八九十一二三四五六七八九廿一二三四五六七八九卅（每行28字，共22行）。\par
+\noindent 10.1信函格式\par
 发文机关标志使用发文机关全称或者规范化简称,居中排布,上边缘至上页边为30mm,推荐使用红色小标宋体字。联合行文时,使用主办机关标志。\par
 发文机关标志下4mm处印一条红色双线(上粗下细),距下页边20mm处印一条红色双线(上细下粗),线长均为170mm,居中排布。\par
 如需标注份号、密级和保密期限、紧急程度,应当顶格居版心左边缘编排在第一条红色双线下,按照份号、密级和保密期限、紧急程度的顺序自上而下分行排列,第一个要素与该线的距离为3号汉字高度的7/8。\par
@@ -67,9 +113,91 @@
 第二条红色双线上一行如有文字,与该线的距离为3号汉字高度的7/8。\par
 首页不显示页码。\par
 版记不加印发机关和印发日期、分隔线,位于公文最后一面版心内最下方。\par
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vfill
 
+\centerline{\2 说\quad 明}
+\setbox37=\hbox{缩进}
+\parindent=\wd37
+\medskip
+
+\noindent 换算行间隔（{\tt\char92 baselineskip}）：\par
+$$ 16.06pt \times 1.75 = 28.105pt(10.56748mm)$$
+\noindent 另外，版心高225毫米，共22行，计算行间距
+$$	21(16.06pt+x) + 16.06pt = 225mm, 1pt=0.376mm $$
+\noindent 解得：
+$$ 16.06pt + x = 28.4954pt,225mm = 598.4043pt $$
+\par
+\noindent 重新代入
+$$ 21 \times 28.5pt + 16.06pt = 614.56pt $$
+\noindent 代码里面按$28pt$的行间距：
+$$ 28pt \times 21 + 16.06pt = 604.06pt$$
+请在$28.1pt$\char126 $28.4954pt$之间适当调节，使得版芯刚好$22$行文字。\par
+
+\noindent 本文档对国家标准{\tt GB/T9704-2012}实现程度：\par
+天头：37mm±1mm, $72pt + \the\voffset \approx 37.224mm $\par
+订口：28mm±1mm, $72pt + \the\hoffset \approx 28.200mm $\par
+版心：{$156mm\times 225mm$}, $(\the\hsize\times\the\vsize )\times 0.376mm/pt \approx ?$\par
+字体：三号，\kern -5pt
+% 实施时用的字体
+{\songti 宋体}\setbox37=\hbox{\songti 字}\the\wd37、\kern -5pt
+{\heiti 黑体}\setbox37=\hbox{\heiti 字}\the\wd37、\kern -5pt
+{\fangsong 仿体}\setbox37=\hbox{\songti 字}\the\wd37、\kern -5pt
+{\title 小标宋}\setbox37=\hbox{\title 字}\the\wd37。\par
+距离：3号汉字7/8，$16.06pt \times {7 \over 8} = 14.0525pt \approx 14pt$\par
+
+\medskip
+\noindent 任务：\par
+底部双红线位置，\dots\par%
+疑问：
+是否每一页的底部需要添加双红线？%
+
+
+\hr
+\medskip
+{\noindent TODO:\par
+水平盒子的分散对齐\par
+竖直盒子的摆放\par
+
+
+
+\medskip
+{
+\noindent 纠错与讨论：\par
+\TeX{}讨论组：\tt 273{\kern 1pt}409{\kern 1pt}844\par
+\1 北理工\TeX{}用户组：\tt 1703{\kern 1pt}68921\par
+\1 电话：\tt(+86)138{\kern 1pt}232{\kern 1pt}25852\par
+}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{% 双红线
+\vbox to 14pt{
+%\hr
+%第二条红色双线上一行如有文字,与该线的距离为3号汉字高度的7/8。
+}
+\special{color push rgb 1 0 0}
 \hrule height 1pt
 \vskip 2pt
 \hrule height 3pt
+\special{color pop}
+}
+\vskip 5cm
+\par
+\centerline{\2 使用说明}
+\noindent{\tt Windows}\par
+北大方正：
+把字体文件放置到如下目录，如果没有该目录，请新建一个。\par
+{\tt C:{\char92}texlive{\char92}2020{\char92}texmf-dist{\char92}fonts{\char92}opentype{\char92}founder}\par
+用\TeX{}Live打开编译。\par
+\noindent{\tt Linux}\par
+{\tt	xetex redletter.tex}
+
+\noindent{\tt MacOS}\par
+
+\centerline{\2 版权说明}
+方正字体，思源字体，中易字体。
+
 
 \bye
