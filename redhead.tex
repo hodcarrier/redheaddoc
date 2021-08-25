@@ -88,20 +88,9 @@ Xe\TeX 红头文件模板，%
 }
 % 间隔 4mm 
 {
-\font\star="SimHei" at 12pt
 \special{color push rgb 1 0 0}%
-%\hrule
-\setbox37=\hbox{\star★}
-\vbox to 5mm{
-\vfill
-\hbox{%
-\vrule height 3pt width 78mm%
-\hfill%
-~\box37~% 五角星
-\hfill%
-\vrule height 3pt width 78mm%
-}}
-%\hrule
+\vskip 4mm
+\hrule height 3pt
 \special{color pop}
 }
 % 标题：2号宋体，编排于红色分隔线下空两行（行间距28磅）
