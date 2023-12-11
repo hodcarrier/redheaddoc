@@ -1,16 +1,52 @@
 %!TEX TS-program = xetex
 %!TEX encoding = UTF-8 Unicode
 
+
+
 % 纸张
 \pdfpagewidth 210mm
 \pdfpageheight 297mm
 
 % 版面
-\hsize = 157mm% 156+
-\vsize = 222mm
+\hsize = 156mm% 156+
+\vsize = 225mm
 
+% TeX 默认版芯偏移（1英寸+hoffset）
 \voffset=11.6mm
 \hoffset=1.6mm
+
+
+
+% 字体组一、Windows 自带字体
+\font\heitiA="SimHei" at 16pt
+\font\fangsongA="FangSong" at 16pt
+\font\kaitiA="KaiTi" at 16pt
+\font\songtititleA="Source Han Serif SC Bold:color=FF0000" at 36pt
+\font\songtifootA="SimSun" at 14pt
+
+% 字体组二、方正免费字体
+\font\heitiB="方正黑体简体" at 16pt
+\font\fangsongB="方正仿宋简体" at 16pt
+\font\kaitiB="方正楷体简体" at 16pt
+\font\songtititleB="方正小标宋简体:color=FF0000" at 36pt
+\font\songtifootB="SimSun" at 14pt
+
+% 字体组三、思源字体
+\font\heitiC="SimHei" at 16pt
+\font\fangsongC="FangSong" at 16pt
+\font\kaitiC="KaiTi" at 16pt
+\font\songtititleC="Source Han Serif SC Bold:color=FF0000" at 36pt
+\font\songtifootC="SimSun" at 14pt
+
+
+
+\def\heiti{\heitiB}
+\def\fangsong{\fangsongB}
+\def\kaiti{\kaitiB}
+\def\songtititle{\songtititleB}
+\def\songtifoot{\songtifootB}
+
+
 % 字体
 % 份号 密级 紧急程度
 \font\heiti="SimHei" at 16pt
@@ -18,13 +54,12 @@
 \font\fangsong="FangSong" at 16pt
 \font\kaiti="KaiTi" at 16pt
 
-\font\title="Noto Sans SC/OT:color=0000FF" at 9pt
-\font\body="Source Han Serif SC:color=0000FF" at 8pt
-\body
+\songti% 调试信息字体
 \XeTeXlinebreaklocale "zh"
+\XeTeXinputencoding=utf-8
 \XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
 
-\font\songtifoot="[SimSun]:color=FFFFFF" at 14pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 奇偶页码 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \footline = {\vbox{%
 \vskip 7mm%  横线中心距离文档 7 毫米
 \vskip -6pt% 横线字高的一半
@@ -36,57 +71,33 @@
 \kern 16pt%
 }}
 
-\vbox to 0mm{
-\hsize = 110mm
-\special{color push rgb 0 0 1}%
-\kern -35mm
-Xe\TeX 红头文件模板，%
-有部分格式还没有完全符合标准，有待今后修正。%
-页码区别单双数。%
-“抄送”二字顶部对齐。\par
-“抄送”部分问题是底部对齐了，%
-还不知道怎么解决。\par%
-请注意成文后检查每行28字，共22行。%
-若不符可微调行间距。\par%
-\noindent
-参考资料：http://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=F3CC9BEF482524C895FDA7A08BB4A70E\par
-\vfill
-\special{color pop}
-}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 密级期限 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vbox to 35mm{
 \heiti
 \parindent = 0pt
-\baselineskip = 28pt
+\baselineskip = 11.66mm
+\setbox37 = \hbox{密级★期限}
 000001\par
-密级★期限\par
-紧急程度\par
+\box37\par
+紧\hskip 5.33pt急\hskip 5.33pt程\hskip 5.33pt度\par
 \vfill
 }
-% 发文机关
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 发文机关 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {
 % 发文机关标识推荐使用小标宋体字
 % 字号由发文机关以醒目美观为原则酌定，但是最大不能等于或大于22mm×15mm。
 \parindent=0pt
-\font\notoserifbold="Source Han Serif SC Bold:color=FF0000" at 36pt
-\notoserifbold
-%\centerline{搬砖科技有限公司文件}%
-% 方正字库知识产权用户许可协议
-% http://www.foundertype.com/index.php/About/powerAllowPro.html
-\font\fzxbsj="方正小标宋简体:color=FF0000" at 36pt
-\fzxbsj
-\centerline{搬砖科技有限公司文件}%
+\songtititle
+\centerline{惠州端口科技有限公司文件}
+\vskip 36pt%空一行
 }
-\vbox to 28pt{%
-\special{color push rgb 0 0 1}%
-\hsize = 46mm\hrule\vfill 空一行\vfill\par\hrule
-\special{color pop}
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 文件编号 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {
+\parindent=0pt
 \fangsong
-\centerline{搬软发〔2018〕1号}
+\centerline{端软发〔2024〕1号}
 }
-% 间隔 4mm 
+% 间隔 4mm
 {
 \special{color push rgb 1 0 0}%
 \vskip 4mm
@@ -104,14 +115,14 @@ Xe\TeX 红头文件模板，%
 \baselineskip = 28pt
 \parskip = 0pt
 \songti
-\centerline{搬砖科技软件部}%
-\centerline{关于吃葡萄不吐葡萄皮的通知}%
+\centerline{端口科技软件部}%
+\centerline{关于任命\thinspace 烤鸭大哥\thinspace 为一号码农的通知}%
 \vskip 28pt
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 接收机关 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {%编排于标题下空一行位置，居左顶格，机关名称后标全角冒号
 \fangsong
-\parindent = 0pt
-各部门主管部门，各鼓励组、各零食补给组、各饮料补给组、各专家以及家属：
+\noindent 各位\TeX{}专家、朋友以及用户：
 }
 
 {
@@ -119,55 +130,74 @@ Xe\TeX 红头文件模板，%
 \baselineskip = 28pt
 \setbox37 = \hbox{缩进}
 \parindent = \wd37
-关于强化复工企业及员工疫情防控措施的通知\par
-根据中央和省、市、区有关复工复产的要求，在疫情防控期间，请各园区和广大企业认真落实联防联控、群防群控职责，配合做好以下重点事项：\par
-{\heiti 一、园区防控措施}\par
-{\kaiti （一）出入管理}\par
-所有进入企业人员必须正确佩戴口罩、必须进行体温检测，并积极配合园区主入口的问询或登记。疫情防控期间，外卖人员一律不得进入园区。\par
-{\kaiti （二）体温测量}\par
-园区主入口、各楼宇大堂设专人值守测量体温，凡体温超过37.3℃、未正确佩戴口罩、重点区域返园区未居家或集中隔离观察14天及不配合检查的人员禁止进入。同时，建议园区在员工进入办公区域时，由园区进行体温检测。\par
-{\kaiti （三）楼宇管理}\par
-园区将对公共区域进行每日2次的消毒防疫;在公共部位集中设置“废弃口罩存放箱”，张贴明显标识，每天由保洁员集中处理。\par
-{\heiti 二、企业防控措施}\par
-{\kaiti （一）企业防控机制}\par
-请企业自觉落实疫情防控单位主体责任，建立企业单位法人或主要负责人任组长的疫情防控领导小组，周密制定疫情防控措施和应急预案，建立“一员一档”，并严格落实执行。灵活安排员工分批返岗，在做好疫情防控工作的前提下，有序组织复工复产;建议结合各自实际采取弹性工时、远程办公、居家办公等措施。\par
-{\kaiti（2）企业人员管理}\par
-对有湖北地区往来史、与湖北地区人员有接触史的员工，请企业企业加强关心沟通联系，建议他们在疫情稳控后回企;对有以上情况并已经抵企的员工，督促其及时联系所在街镇的村/居委会或入住的酒店等，采取居家或集中隔离医学观察不少于14天等防控措施。疫情防控期间，对外地(国)返企同时采取不少于14天的隔离防控措施。\par
-{\kaiti（3）防疫物资管理}\par
-请企业切实关注员工的身体健康状况，尽可能做好相关防疫物资(口罩、体温检测仪、消毒剂等)配备。请正确使用防疫物资，按要求做好保管工作，确保安全存放及使用。\par
-{\kaiti（4）办公场所管理}\par
-复工前，请企业对工作场所进行消毒处理，并确保每日消毒。进入企业请佩带口罩，对上班员工做到每日2次体温检测，并做好记录。企业自身有班车运营的请做好员工体温检测、口罩佩戴等基础工作。建议线上会议沟通工作，减少集中开会。如需开会，必须佩戴口罩，入会议室前洗手消毒，控制时长，室内通风排浊。\par
-{\kaiti（5）企业访客管理}\par
-企业访客应佩戴口罩，进入办公区前先检测体温，确定有无重点疫区接触史和发热、咳嗽、呼吸不畅等症状。无上述情况且体温正常，方可进入办公区并在指定区域会客。疫情防控期间，建议企业尽量减少安排员工外出以及出差。\par
-{\kaiti（6）防疫知识宣传}\par
-请企业及时向员工普及新冠肺炎相关知识，广泛宣传落实预防措施，教育员工不传谣、不信谣，避免员工出现恐慌等不良情绪。建议企业向本企业的湖北籍员工发一条关爱信息、打一个暖心电话，做到隔离不隔心。\par
-{\heiti 三、个人防护温馨提示}\par
-为避免复工后入园测温工作可能导致的车辆、人员拥堵，建议各企业根据实际情况尽量选择错峰上班。\par
-为避免乘坐电梯时可能造成的感染风险，建议低楼层的企业提倡鼓励员工使用楼梯步行上下楼。\par
-为避免外出就餐和使用外卖可能造成的感染风险，建议企业提倡员工自行带饭、预约用餐或错峰用餐。\par
-凡来自或者途经疫情重点地区的人员进入本企业的，以及与上述人员、确诊或疑似新冠肺炎病例有密切接触的人员，应主动接受体温检测，自觉实施居家或者积极配合集中隔离医学观察14天。对未按照规定主动登记，在工作人员询问时不如实告知，或者拒绝执行相关检测、居家隔离、集中隔离观察措施的，将按照有关规定处理，构成治安管理违法行为或者犯罪的，公安机关将依法追究相关人员的法律责任。\par
-请各经济开发园区和广大企业将疫情防控和复工复产情况每日5点前用办公网公务邮箱报送至区疫情防控指挥部办公室。\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 正文开始 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+关于公司文件按照《党政机关公文格式国家标准》（GB/T9704-2012）格式撰写的通知\par
+根据上述标准，配合做好以下重点事项：\par
+
+{\heiti 一、一级条目}\par
+{\kaiti （一）二级条目}\par
+条目内容\par
+
+{\heiti 二、存在问题}\par
+{\kaiti （一）版记}\par
+正文结束位于奇数页时需要换页，把版记放到偶数页。现在版记不能总是定位到正确位置，遇到请手工调整。\par
+{\kaiti （二）落款}\par
+印章距正文大于1毫米且在一行之内。\par
+
+{\kaiti （三）字体大小不精确}\par
+规范中要求字体大小为三号字体，三号对应15.75pt。
+目前用的是16pt，按每行28字计，一行误差大约为7pt，目前实测相差5pt。
+这种情况会导致一行只能放置27个汉字。可以将版芯增加5pt，即448pt，规范要求是156mm，
+即（\setbox37=\hbox to 156mm{}\the\wd37）。
+
+目前版芯宽：\the\hsize，
+\setbox37 = \hbox{一二三四五六七一二三四五六七一二三四五六七一二三四五六七}
+28个字的实际宽度：\the\wd37。\par
+\noindent{}\box37{}\par
+\noindent{}一二三四五六七一二三四五六七一二三四五六七一二三四五六七超\par
+请做细微调节，使下面的七言绝句（每行28字）对齐。\par
+\noindent%
+浔阳江头夜送客枫叶荻花秋瑟瑟主人下马客在船举酒欲饮无管弦醉不成欢惨将别别时茫茫江%
+浸月忽闻水上琵琶声主人忘归客不发寻声暗问弹者谁琵琶声停欲语迟移船相近邀相见添酒回%
+灯重开宴千呼万唤始出来犹抱琵琶半遮面转轴拨弦三两声未成曲调先有情弦弦掩抑声声思似%
+诉平生不得志低眉信手续续弹说尽心中无限事轻拢慢捻抹复挑初为霓裳后六幺大弦嘈嘈如急%
+雨小弦切切如私语嘈嘈切切错杂弹大珠小珠落玉盘间关莺语花底滑幽咽泉流冰下难冰泉冷涩%
+弦凝绝凝绝不通声暂歇别有幽愁暗恨生此时无声胜有声银瓶乍破水浆迸铁骑突出刀枪鸣曲终%
+收拨当心画四弦一声如裂帛东船西舫悄无言唯见江心秋月白沉吟放拨插弦中整顿衣裳起敛容%
+自言本是京城女家在虾蟆陵下住十三学得琵琶成名属教坊第一部曲罢曾教善才服妆成每被秋%
+娘妒五陵年少争缠头一曲红绡不知数钿头银篦击节碎血色罗裙翻酒污今年欢笑复明年秋月春%
+风等闲度弟走从军阿姨死暮去朝来颜色故门前冷落鞍马稀老大嫁作商人妇商人重利轻别离前%
+月浮梁买茶去去来江口守空船绕船月明江水寒夜深忽梦少年事梦啼妆泪红阑干我闻琵琶已叹%
+息又闻此语重唧唧同是天涯沦落人相逢何必曾相识我从去年辞帝京谪居卧病浔阳城浔阳地僻%
+无音乐终岁不闻丝竹声住近湓江地低湿黄芦苦竹绕宅生其间旦暮闻何物杜鹃啼血猿哀鸣春江%
+花朝秋月夜往往取酒还独倾岂无山歌与村笛呕哑嘲哳难为听今夜闻君琵琶语如听仙乐耳暂明%
+莫辞更坐弹一曲为君翻作琵琶行感我此言良久立却坐促弦弦转急凄凄不似向前声满座重闻皆%
+掩泣座中泣下谁最多江州司马青衫湿
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 正文结束 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 }
 
 \hfill\vbox to 21mm{%
-\special{color push rgb 0 0 1}%
+\special{color push rgb 0 0 0}%
 \hsize = 40mm
 \hrule
 \vskip 1mm
-\hrule
-\vbox to 0pt{\vskip 4pt 印章距正文 大于1毫米 且在一行之内}
+%\hrule
+%\vbox to 0pt{\vskip 4pt 印章距正文 大于1毫米 且在一行之内}
 \vskip 28pt
-\hrule
+%\hrule
 \special{color pop}
 }\kern 38mm
 
 \fangsong
 \baselineskip = 28pt
 \setbox37=\hbox{右空四字}
-\setbox38=\hbox{某某区疫情防控指挥部办公室}
-\setbox39=\hbox{2020年8月19日}
+\setbox38=\hbox{后勤部办公室}
+\setbox39=\hbox{2023年12月8日}
 \setbox40=\hbox to \wd37{\hfill}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 智障换页 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 正文结束位于奇数页时需要换页，把版记放到偶数页。
 \hfill\vbox{%
 \hsize=\wd38
 % \hsize=\wd39
@@ -178,6 +208,7 @@ Xe\TeX 红头文件模板，%
 \ifodd\pageno{\vfill\hfill\vfill\vskip\vsize}%
 \else{\vfill\hfill}\fi%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 偶页版记 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 版记排在偶数页
 \vbox{
 \font\fangsong="FangSong" at 14pt
@@ -195,10 +226,10 @@ Xe\TeX 红头文件模板，%
 \vskip 5pt
 \hrule height 1pt
 \vskip 5pt
-\vbox{{\quad 搬砖科技有限公司滑稽办公室}\hfill{2021年8月19日印发}\kern \wd37}\par
+\vbox{{\quad 惠州端口科技有限公司后勤部办公室}\hfill{2023年12月8日印发}\kern \wd37}\par
 \vskip 5pt
 \hrule height 1pt
 }
 % 参考资料
-% http://www.ankang.gov.cn/Content-2060365.html
+% https://www.uta.edu.cn/xsc/2022/0716/c2066a116074/page.htm
 \bye
