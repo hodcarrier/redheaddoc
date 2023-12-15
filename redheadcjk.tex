@@ -4,13 +4,14 @@
 \usepackage[CJKspace]{xeCJK}
 \usepackage{xpinyin}
 
-\setmainfont{Noto Serif Light}
-\setsansfont{Noto Sans}
-\setmonofont[Scale=MatchLowercase]{Noto Mono}
+\setmainfont{SimSun}
+\setsansfont{SimSun}
+\setmonofont[Scale=MatchLowercase]{SimSun}
 
-\setCJKmainfont{Noto Serif CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
+\setCJKmainfont{SimSun}
+\setCJKsansfont{SimSun}
+\setCJKmonofont{SimSun}
+
 
 %% From https://tex.stackexchange.com/a/379867/226
 \def\biangT{{\xeCJKsetup{CJKglue={}}⿺辶⿳穴⿰月⿰⿲⿱幺長⿱言馬⿱幺長刂心}}
@@ -47,13 +48,13 @@ The Noto Serif/Sans CJK fonts (also known as Source Hans Serif 思源宋体、So
 Test for Traditional Chinese: (Compare the punctuations to that of Simplified Chinese.)
 
 \begin{multicols}{2}
-\CJKfontspec{Noto Serif CJK TC}
+% \CJKfontspec{Noto Serif CJK TC}
 \begin{verse}
 兩個黃鸝鳴翠柳，\\一行白鷺上青天。\\
 窗含西嶺千秋雪，\\門泊東吳萬里船。
 \end{verse}
 
-\CJKfontspec{Noto Sans CJK TC}
+% \CJKfontspec{Noto Sans CJK TC}
 \begin{verse}
 兩個黃鸝鳴翠柳，\\一行白鷺上青天。\\
 窗含西嶺千秋雪，\\門泊東吳萬里船。
@@ -67,14 +68,14 @@ Noto Serif and Sans CJK also have glyphs for \href{https://blogs.adobe.com/CCJKT
 
 Test for Japanese:
 \begin{multicols}{2}
-\CJKfontspec{Noto Serif CJK JP}
+% \CJKfontspec{Noto Serif CJK JP}
 \begin{verse}
 秋来ぬと、\\
 目にはさやかに見えねども、\\
 風の音にぞおどろかれぬる。
 \end{verse}
 
-\CJKfontspec{Noto Sans CJK JP}
+% \CJKfontspec{Noto Sans CJK JP}
 \begin{verse}
 秋来ぬと、\\
 目にはさやかに見えねども、\\
@@ -85,14 +86,14 @@ Test for Japanese:
 
 Test for Korean:
 \begin{multicols}{2}
-\CJKfontspec{Noto Serif CJK KR}
+% \CJKfontspec{Noto Serif CJK KR}
 \begin{verse}
 오늘이 오늘이소서 매일이 오늘이소서\\
 저물지도 새지도 말으시고\\
 새려면 늘 언제나 오늘이소서
 \end{verse}
 
-\CJKfontspec{Noto Sans CJK KR}
+% \CJKfontspec{Noto Sans CJK KR}
 \begin{verse}
 오늘이 오늘이소서 매일이 오늘이소서\\
 저물지도 새지도 말으시고\\
@@ -103,10 +104,11 @@ Test for Korean:
 The Noto CJK fonts respects regional writing conventions for the same ideograph. Here are the same ideograph 述typeset with Noto Serif CJK for different regions:
 
 \begin{center}
-[SC] {\CJKfontspec{Noto Serif CJK SC}述}\quad
-[TC] {\CJKfontspec{Noto Serif CJK TC}述}\quad
-[JP] {\CJKfontspec{Noto Serif CJK JP}述}\quad
-[KR] {\CJKfontspec{Noto Serif CJK KR}述}
+这里的述字有四种写法。
+% [SC] {\CJKfontspec{Noto Serif CJK SC}述}\quad
+% [TC] {\CJKfontspec{Noto Serif CJK TC}述}\quad
+% [JP] {\CJKfontspec{Noto Serif CJK JP}述}\quad
+% [KR] {\CJKfontspec{Noto Serif CJK KR}述}
 \end{center}
 
 You can set a default CJK serif and sans font for your document by loading the \texttt{xeCJK} package, then use the \verb|\setCJKmainfont{...}| and \verb|\setCJKsansfont{...}| commands. (See preamble of this example project.) You can always switch to a different CJK font in the middle of your document using \verb|\CJKfontspec{...}|. Remember to compile your project \href{https://www.overleaf.com/learn/latex/Choosing_a_LaTeX_Compiler}{with the XeLaTeX or LuaLaTeX compilers}.
