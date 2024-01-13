@@ -1,4 +1,4 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper,twoside]{article}
 \usepackage{xeCJK}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
@@ -8,64 +8,56 @@
 %\setlength\hsize{156mm}
 %\setlength\vsize{225mm}
 
+% 版芯宽度，高度
 \setlength\textwidth{156mm}
 \setlength\textheight{225mm}
 
-%\setlength\topskip{7mm}
+%% 竖直方向
+\setlength\voffset{37mm}
+\addtolength\voffset{-1in}
+\setlength\topmargin{-51pt}
+\setlength\headheight{50pt}
+\setlength\headsep{4mm}
+%\setlength\footskip{0pt}
+
+%\setlength\topskip{44mm}
+
+%% 水平方向
+\setlength\hoffset{0mm}
+\addtolength\hoffset{-1in}
+\setlength\marginparsep{11pt}
+\setlength\oddsidemargin{25mm}
+\addtolength\oddsidemargin{11pt}
+\setlength\evensidemargin{25mm}
+\addtolength\evensidemargin{11pt}
 
    \setmainfont{方正仿宋简体}[]
 \setCJKmainfont{方正仿宋简体}[]
 
-% \CJKfontspec{方正小标宋简体}
-
-
-\begin{document}
-
-\fontsize{15.85}{15.85}
-\setbox37=\hbox{缩进}
-\parindent=\wd37
-\baselineskip=10.446428571428571mm
-
-\hoffset=-56pt
-\voffset=1pt
-
-
-\the\textwidth
-
-\the\vsize
-\the\hsize
-
-
-
 \pagestyle{fancy}
 
-
-
-
-
-\fancyhead[L,R]{}
-\fancyhead[C]{{\vskip -36pt\color{red}\noindent\CJKfontspec{方正小标宋简体}\fontsize{36}{32}惠州端口大婶科技有限公司}}
-\fancyfoot[L]{}
-\fancyfoot[C]{}
-\fancyfoot[R]{\thepage}
+\fancyhead[L,C,R]{}
+\fancyhead[C]{{\makebox[140mm][s]{\color{red}\noindent\CJKfontspec{方正小标宋简体}\fontsize{32}{0}惠州市奥特曼精神卫生中心}}}
+\fancyfoot[L,C,R]{}
+\fancyfoot[LE]{　　　－\hskip -5pt－\thepage－\hskip -5pt－}
+\fancyfoot[RO]{\ifnum\thepage>1{－\hskip -5pt－\thepage－\hskip -5pt－　　　}\fi}
+\fancyfoot[C]{\ifnum\thepage=1{151 1893 1976}\fi}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{2pt}
 
-%\renewcommand{\headrule}{\vbox to 0pt{\makebox[\headwidth]{\dotfill}\vss}}
-
-
 \setlength\headwidth{170mm}
+\fancyheadoffset{7mm}
+\fancyfootoffset{7mm}
 
 \newdimen\doublelineskip % 两横线间的距离
 \setlength\doublelineskip{2pt}
-\renewcommand\headrule{%
-
-  {\color{red}%
+\renewcommand\headrule{{%
+  \color{red}%
   \vskip 4mm%
   \hrule height\headrulewidth width\headwidth%
   \vskip \doublelineskip%
-  \hrule height 1pt width\headwidth}%
-  }
+  \hrule height 1pt width\headwidth%
+  }}%
   
 \renewcommand\footrule{{%
   \color{red}%
@@ -75,12 +67,19 @@
   \hrule height \headrulewidth width\headwidth%
   }}
 
-
 \renewcommand{\headrulewidth}{1mm}
 \renewcommand{\footrulewidth}{1mm}
 
+\begin{document}
+% 配置字体大小
+\fontsize{15.85pt}{0pt}
+\setbox37=\hbox{缩进}
+\parindent=\wd37
+\baselineskip=29.71875pt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\begin{center}
+  空白
+\end{center}
 
 公文用纸天头（上白边）为 37 mm±1 mm，
 公文用纸订口（左白边）为 28mm±1mm，
@@ -108,10 +107,6 @@
 首页不显示页码。
 
 版记不加印发机关和印发日期、 分隔线， 位于公文最后一面版心内最下方。
-
-
-
-\the\topskip
 \vfill
 《琵琶行》的字数刚好是一个版面，28字每行，总22行，
 请观察下一页面效果。
@@ -171,7 +166,7 @@
 座中泣下谁最多 江州司马青衫湿%22
 
 % 这里应该刚好换页
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
 长\qquad\qquad 征
 
